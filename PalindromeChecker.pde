@@ -4,11 +4,10 @@ public void setup()
   System.out.println("there are " + lines.length + " lines");
   for (int i=0; i < lines.length; i++) 
   {
-    if(palindrome(lines[i])==true)
+    if (palindrome(lines[i])==true)
     {
       System.out.println(lines[i] + " IS a palindrome.");
-    }
-    else
+    } else
     {
       System.out.println(lines[i] + " is NOT a palindrome.");
     }
@@ -16,14 +15,29 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  //your code here
-  return false;
+  boolean output = false;
+  if (lowerCase(word).equals(lowerCase(reverse(word)))) {
+    output = true;
+  }
+  return output;
 }
+
 public String reverse(String str)
 {
-    String sNew = new String();
-    //your code here
-    return sNew;
+  String sNew = new String();
+  for (int iRev=0; iRev<str.length(); iRev++) {
+    sNew+=str.charAt(str.length()-iRev-1);
+  }
+  return sNew;
 }
 
-
+public String lowerCase(String inputText) {
+  String basic = new String();
+  for (int iSimple=0; iSimple<inputText.length(); iSimple++) {
+    char aC=inputText.charAt(iSimple);
+    if (aC>='A'&&aC<='z') {
+      basic+=aC;
+    }
+  }
+  return basic.toLowerCase();
+}
